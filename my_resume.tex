@@ -1,0 +1,290 @@
+\documentclass[letterpaper,10pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN_FILE:
+%% NOTE: Everything between here and END_FILE can
+%\usepackage{mteck}
+
+% Dependencies
+% NOTE: Some packages (lastpage, hyperref) require second build!
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage}
+
+% Sans-Serif
+%\usepackage[sfdefault]{FiraSans}
+%\usepackage[sfdefault]{roboto}
+%\usepackage[sfdefault]{noto-sans}
+%\usepackage[default]{sourcesanspro}
+
+% Serif
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+
+% Colors
+% Use with \color{Name}
+% Can wrap entire heading with {\color{accent} [...] }
+\usepackage{xcolor}
+\definecolor{accentTitle}{HTML}{0e6e55}
+\definecolor{accentText}{HTML}{0e6e55}
+\definecolor{accentLine}{HTML}{a16f0b}
+
+% Misc. Options
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+% Adjust Margins
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.4in}
+
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{3.7pt}
+\raggedbottom
+\raggedright
+
+% ATS Readability
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+%-----------------%
+% Custom Commands %
+%-----------------%
+
+% Centered title along with subtitle between HR
+% Usage: \documentTitle{Name}{Details}
+\newcommand{\documentTitle}[2]{
+  \begin{center}
+    {\Huge\color{accentTitle} #1}
+    \vspace{10pt}
+    {\color{accentLine} \hrule}
+    \vspace{2pt}
+    %{\footnotesize\color{accentTitle} #2}
+    \footnotesize{#2}
+    \vspace{2pt}
+    {\color{accentLine} \hrule}
+  \end{center}
+}
+
+% Create a footer with correct padding
+% Usage: \documentFooter{\thepage of X}
+\newcommand{\documentFooter}[1]{
+  \setlength{\footskip}{10.25pt}
+  \fancyfoot[C]{\footnotesize #1}
+}
+
+% Simple wrapper to set up page numbering
+% Usage: \numberedPages
+% WARNING: Must run pdflatex twice!
+\newcommand{\numberedPages}{
+  \documentFooter{\thepage/\pageref{LastPage}}
+}
+
+% Section heading with horizontal rule
+% Usage: \section{Title}
+\titleformat{\section}{
+  \vspace{-5pt}
+  \color{accentText}
+  \raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
+
+% Section heading with separator and content on same line
+% Usage: \tinysection{Title}
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
+}
+
+% Indented line with arguments left/right aligned in document
+% Usage: \heading{Left}{Right}
+\newcommand{\heading}[2]{
+  \hspace{10pt}#1\hfill#2\\
+}
+
+% Adds \textbf to \heading
+\newcommand{\headingBf}[2]{
+  \heading{\textbf{#1}}{\textbf{#2}}
+}
+
+% Adds \textit to \heading
+\newcommand{\headingIt}[2]{
+  \heading{\textit{#1}}{\textit{#2}}
+}
+
+% Template for itemized lists
+% Usage: \begin{resume_list} [items] \end{resume_list}
+\newenvironment{resume_list}{
+  \vspace{-7pt}
+  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=30pt]
+}{
+  \end{itemize}
+  %\vspace{-2pt}
+}
+
+% Formats an item to use as an itemized title
+% Usage: \itemTitle{Title}
+\newcommand{\itemTitle}[1]{
+  \item[] \underline{#1}\vspace{4pt}
+}
+
+% Bullets used in itemized lists
+\renewcommand\labelitemi{--}
+
+%% END_FILE:
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%==========================%
+% Hitoshi Manvatkar Resume %
+%==========================%
+
+%\numberedPages % NOTE: lastpage requires a second build
+%\documentFooter{\thepage of 2} % Does similar without using lastpage
+\begin{document}
+
+  %---------%
+  % Heading %
+  %---------%
+
+  \documentTitle{Hitoshi Nitin Manvatkar}{
+    % Web Version
+    %\raisebox{-0.05\height} \faPhone\ [redacted - web copy] ~
+    %\raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] ~
+    %%
+    
+      \raisebox{-0.05\height} \faPhone\ +91 7498756650 ~ | ~
+    \href{https://@gmail.com}{
+      \raisebox{-0.15\height} \faEnvelope\ hitoshimanvatkar11@gmail.com} ~ | ~
+    \href{https://www.linkedin.com/in/hitoshi-manvatkar/}{
+      \raisebox{-0.15\height} \faLinkedin\ linkedin.com/in/hitoshi-manvatkar} ~ | ~
+    \href{https://github.com/Barrakudahub}{
+      \raisebox{-0.15\height} \faGithub\ github.com/Barrakudahub}
+  }
+
+  %---------%
+  % Summary %
+  %---------%
+
+  \tinysection{Summary}
+I am a proactive IT engineer with intermediate web development skills and a strong determination to excel in the industry. I bring adaptability, effective communication, and a dedication to fostering innovation within the organization. 
+
+  %--------%
+  % Skills %
+  %--------%
+
+  \section{Skills}
+
+  \begin{multicols}{2}
+    \begin{itemize}[itemsep=px, parsep=1.5pt, leftmargin=60pt]
+      \item[\textbf{Web Development}] HTML, CSS, JavaScript,React.js 
+      \item[\textbf{Programming Languages}] C/C++, Java, JavaScript
+      \item[\textbf{Operating System}] Windows, Linux
+      \item[\textbf{Soft Skills}] Problem-solving, teamwork, and communication.
+      \item[\textbf{Dev Tools}] Visual Studio Code, Git, GitHub
+      \item[\textbf{AI Tools}] ChatGPT, Gemini, Gamma
+    \end{itemize}
+  \end{multicols}
+
+  %------------%
+  % Experience %
+  %------------%
+
+  \section{Personal Projects}
+
+  \headingBf{Personal Portfolio website }{Jan 2023 -- July 2024}
+  \headingIt{\textbf{Technologies:} HTML, CSS, JavaScript, Bootstrap 4, jQuery }{}
+  \begin{resume_list}
+    \item Developed a responsive and visually appealing website showcasing my skills and projects. 
+    \item Implemented interactive elements using JavaScript, such as a navigation bar, animations, and inquiry form validation. 
+    \item Utilized Bootstrap for a consistent and mobile-friendly layout. 
+    \item Successfully deployed the website to a live server. 
+    \vspace{3pt}
+  \end{resume_list}
+
+    \headingBf{Drum Kit Set - The Musical Game   }{Feb 2024 -- Mar 2024}
+  \headingIt{\textbf{Technologies:} HTML, CSS, JavaScript }{}
+  \begin{resume_list}
+    \item Created a fully functional musical game with interactive drum pads. 
+    \item Implemented sound effects and animations using JavaScript.  
+    \item Utilized advanced JavaScript concepts, such as callbacks and event listeners, to handle user interactions. 
+    \item Designed a visually engaging interface with CSS. 
+  \end{resume_list}
+
+    \headingBf{HDR Guidance Website }{Mar 2022 -- May 2022}
+  \headingIt{\textbf{Technologies:} HTML, CSS, JavaScript }{}
+  \begin{resume_list}
+    \item Contributed to the development of a career guidance website for students. 
+    \item Implemented basic navigation and content organization using HTML and CSS 
+    \item Utilized JavaScript to add dynamic elements, such as search functionality, and to Gather user's email ID using SMTP mailer.
+    \item Deployed the website on Git. 
+  \end{resume_list}
+
+  %-----------%
+  % Education %
+  %-----------%
+
+  \section{Education}
+
+  \headingBf{B.E in Information Technology }{2020 - 2024} % Note: Adding year(s) exposes an implied age
+  \headingIt{Sipna College of Engineering and Technology, Amravati }{}
+  \headingIt{CGPA: 8.09 }{}
+
+\vspace{5pt}
+
+  \headingBf{Class XII  }{2018 - 2020} % Note: Adding year(s) exposes an implied age
+  \headingIt{Shri. Shivaji Science College,  Amravati }{}
+  \headingIt{Minor in Vocational Electronics  }{}
+  
+  % \vspace{5pt}
+  % \headingBf{Certifications}{}
+  % \begin{resume_list}
+  %   \item Salt \hspace{2pt}- SaltStack Certified Engineer
+  %   \item GCP - Professional Cloud Architect
+  % \end{resume_list}
+
+  %----------------------------%
+  % Extracurricular Activities %
+  %----------------------------%
+
+  \section{Professional Certification}
+
+  \headingBf{Full Stack Web Development by Dr. Angela Yu}{Udemy}
+
+\vspace{5pt}
+
+  \headingBf{ChatGPT: A Complete Guide for Beginners by Web Oral}{Udemy}
+
+    \section{Workshop and Seminar}
+    \headingIt{Time Management and Business Communication Workshop }{}
+    
+    \vspace{5pt}
+    
+   \headingIt{AI Tool Workshop (be10X)  }{}
+
+
+        \section{Hobbies and Interest}
+        \begin{resume_list}
+\item{Listening to music }
+\item{Reading reviews on e-commerce websites }
+\item{Exploring new technologies }
+        \end{resume_list}
+
+    \section{Special Achievement}
+    \headingIt{Registered in Best of India Records }{}
+   
+    
+\end{document}
